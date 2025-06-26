@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodTune</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2em;
+      background: #f3f4f6;
+    }
+    h1 {
+      color: #333;
+    }
+    .mood-button {
+      padding: 1em 2em;
+      margin: 1em;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #c7d2fe;
+      transition: background-color 0.3s;
+    }
+    .mood-button:hover {
+      background-color: #a5b4fc;
+    }
+    #music {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Comment te sens-tu aujourd'hui ?</h1>
+  <div>
+    <button class="mood-button" onclick="playMusic('stress')">😰 Stressé</button>
+    <button class="mood-button" onclick="playMusic('fatigue')">😴 Fatigué</button>
+    <button class="mood-button" onclick="playMusic('motivation')">💪 Motivé</button>
+    <button class="mood-button" onclick="playMusic('triste')">😢 Triste</button>
+  </div>
+
+  <div id="music"></div>
+
+  <script>
+    const musicLinks = {
+      stress: "https://www.youtube.com/embed/2OEL4P1Rz04",
+      fatigue: "https://www.youtube.com/embed/DWcJFNfaw9c",
+      motivation: "https://www.youtube.com/embed/fCebJodm0lY",
+      triste: "https://www.youtube.com/embed/hLQl3WQQoQ0"
+    };
+
+    function playMusic(mood) {
+      const link = musicLinks[mood];
+      document.getElementById("music").innerHTML = `
+        <h2>Musique recommandée 🎵</h2>
+        <iframe width="300" height="200" src="${link}" frameborder="0" allowfullscreen></iframe>
+      `;
+    }
+  </script>
+</body>
+</html>
+
 
